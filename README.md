@@ -1,4 +1,4 @@
-# [PRODUCT_NAME]
+# Claude Vibe Boilerplate
 
 A zero-build boilerplate for vibe-coded, frontend-only prototype products — cloned from a prior product and stripped down to a reusable starting point.
 
