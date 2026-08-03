@@ -1,0 +1,256 @@
+/* Design tokens — starting point.
+ * This file is a generic, Material-Design-adjacent token set meant to be
+ * swapped out per product: replace the color scale, font stack, and radius
+ * values below with your brand's own, but keep the custom-property names
+ * (--color-*, --space-*, --font-*, --radius-*) so shared style-builder
+ * functions and components stay a drop-in fit. No framework/bundler
+ * required — this is plain CSS loaded via <link>.
+ */
+:root {
+  /* Font stack — system-ui is used by default so the boilerplate renders
+     correctly with zero extra downloads. Swap in a webfont (e.g. via
+     @font-face or a <link> to Google Fonts) and update this variable to
+     match your product's type identity. */
+  --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+
+  /* Core neutral color — the default UI text/surface color. Swap for your
+     brand's ink color; keep it dark enough for AA contrast on white. */
+  --color-black: #1A1A1A;
+  --color-white: #FFFFFF;
+
+  /* Primary — the default interactive/action color (buttons, links, focus
+     rings). A neutral indigo/blue placeholder; replace with your brand color. */
+  --color-primary: #3F51B5;
+  --color-primary-hover: #303F9F;
+  --color-primary-dark: #1A237E;
+
+  /* Neutral gray ramp — used for borders, muted text, and surfaces. */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #E0E0E0;
+  --color-gray-300: #BDBDBD;
+  --color-gray-600: #757575;
+  --color-gray-700: #424242;
+
+  /* Semantic status colors (background / foreground pairs) — success,
+     warning, danger. Use these instead of ad hoc greens/reds/ambers. */
+  --color-status-success-bg: #E3F5E9;
+  --color-status-success-fg: #1B7A3E;
+  --color-status-warning-bg: #FFF3DE;
+  --color-status-warning-fg: #99650A;
+  --color-status-danger-bg: #FCE8E6;
+  --color-status-danger-fg: #B3261E;
+  --color-status-neutral-bg: #F5F5F5;
+  --color-status-neutral-fg: #757575;
+
+  /* 8px spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+  --space-7: 48px;
+
+  /* Body-text type scale */
+  --font-size-2xs: 10px;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 15px;
+  --font-size-lg: 19px;
+
+  /* Display type scale — large one-off numerals (KPI values, hero stats). */
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+  --font-size-30: 30px;
+  --font-size-32: 32px;
+
+  /* Font weight scale */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
+
+  /* Heading/body typographic roles — the actual named hierarchy (h1/h2/h3/body).
+     Aliased onto the raw scale above so there's one place that defines "what size
+     is a page title" vs. "what size is 24px" — use these for real heading/paragraph
+     elements; keep using the raw --font-size-* scale for non-heading text (chips,
+     buttons, table cells, badges) where a heading role doesn't apply. */
+  --font-size-h1: var(--font-size-24);
+  --font-weight-h1: var(--font-weight-heavy);
+  --font-size-h2: var(--font-size-16);
+  --font-weight-h2: var(--font-weight-bold);
+  --font-size-h3: var(--font-size-md);
+  --font-weight-h3: var(--font-weight-bold);
+  --font-size-body-lead: var(--font-size-base);
+  --font-size-body: var(--font-size-sm);
+  --font-weight-body: var(--font-weight-regular);
+  --font-size-logo: var(--font-size-lg);
+  --font-weight-logo: var(--font-weight-bold);
+
+  /* Border radius */
+  --radius-page: 12px;
+  --radius-inline: 8px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* Default hairline border color */
+  --color-border-default: var(--color-gray-200);
+
+  /* Motion — kept short and consistent; used for hover/focus/press feedback
+     and enter animations (side sheets, sheet overlays). */
+  --transition-fast: 140ms ease;
+  --transition-base: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------------------
+ * Layout utilities
+ * ------------------------------------------------------------------- */
+.flex-row { display: flex; align-items: center; }
+.flex-row-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-shrink-0 { flex-shrink: 0; }
+.inline-flex { display: inline-flex; }
+.text-muted { color: var(--color-gray-600); }
+.text-default { color: var(--color-black); }
+
+.gap-6 { gap: 6px; }
+.gap-8 { gap: var(--space-2); }
+.gap-10 { gap: 10px; }
+.gap-12 { gap: 12px; }
+
+/* ---------------------------------------------------------------------
+ * Card
+ * ------------------------------------------------------------------- */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-page);
+  padding: 18px;
+  margin-bottom: 20px;
+  transition: border-color var(--transition-fast);
+}
+.card:hover {
+  border-color: var(--color-gray-300);
+}
+
+/* ---------------------------------------------------------------------
+ * Chip / pill / badge shape — pair with the status bg+fg token pairs
+ * above for color; this class only sets the shape.
+ * ------------------------------------------------------------------- */
+.chip-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  padding: 4px 11px;
+  font-size: var(--font-size-sm);
+}
+
+/* ---------------------------------------------------------------------
+ * Eyebrow label (uppercase section/field label)
+ * ------------------------------------------------------------------- */
+.label-eyebrow {
+  display: block;
+  color: var(--color-gray-600);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+.label-eyebrow.text-2xs { font-size: var(--font-size-2xs); }
+.label-eyebrow.text-sm { font-size: var(--font-size-sm); }
+
+/* ---------------------------------------------------------------------
+ * Form input
+ * ------------------------------------------------------------------- */
+.form-input {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-inline);
+  padding: 10px 12px;
+  font-size: var(--font-size-sm);
+  transition: border-color var(--transition-fast);
+}
+.form-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* ---------------------------------------------------------------------
+ * Headings
+ * ------------------------------------------------------------------- */
+.title-h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+.title-h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+}
+.title-h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+}
+
+/* ---------------------------------------------------------------------
+ * Round icon button (32x32)
+ * ------------------------------------------------------------------- */
+.btn-icon-round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.btn-icon-round:hover {
+  border-color: var(--color-gray-300);
+}
+.btn-icon-round:active {
+  transform: scale(0.93);
+}
+
+/* ---------------------------------------------------------------------
+ * Sidebar nav item
+ * ------------------------------------------------------------------- */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------
+ * Motion — global interactive feedback and panel enter animation.
+ * Deliberately restrained: opacity/border/transform only, no drop
+ * shadows.
+ * ------------------------------------------------------------------- */
+button {
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+button:not(:disabled):hover {
+  opacity: 0.82;
+}
+button:not(:disabled):active {
+  transform: scale(0.97);
+  opacity: 1;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+@keyframes panel-slide-in {
+  from { transform: translateX(16px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
