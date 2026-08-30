@@ -2,6 +2,17 @@
 
 > **This is a BOILERPLATE CLAUDE.md.** Sections or lines marked **[PLACEHOLDER]** need to be filled in deliberately when starting a new product on this repo — don't leave them unfilled and don't let default/assumed values leak in from the prior product.
 
+## Workflow
+- Never commit or push automatically. Make the requested edits, stop, and let the user review the files locally before anything is committed. Only commit/push when explicitly told to.
+- If a request is vague or open to more than one reasonable interpretation, don't guess — ask multiple-choice clarifying questions one at a time until it's resolved, rather than picking an interpretation and running with it.
+- Preserve existing functionality when restyling or refactoring. A visual/design pass should not silently drop working behavior (e.g. a login flow) — carry it forward even as markup and styles change.
+- The PRD is the source of truth for product requirements and scope. Check it before adding or changing functionality.
+- It's fine to add non-functional/decorative elements for visual completeness (e.g. extra auth provider buttons) when the user explicitly scopes them that way — don't wire them up unless asked.
+- If a task from the docs/backlog.md file is done, remove it from the list.
+- If asked "why" something is a certain way, answer the why question directly first — don't jump straight to implementing a fix. Only make a change afterward if the user then asks for one.
+- Before invoking any skill or plugin that isn't one of this repo's own `.claude/agents/*.md` personas (e.g. a global "superpowers" brainstorming/planning skill), ask first. This repo has its own tailored agents for exactly this kind of work — default to those, don't let an unrelated global skill take over a task they're built for.
+- Don't claim a change works without checking it, but don't spin up a local server (`python3 -m http.server` or similar) to do that check unless explicitly asked. Verification here means: `node --check` on any touched `.js` file, grepping to confirm structural rules actually hold (e.g. zero `style="` / `<style` matches in HTML per the no-inline-CSS rule, every `var(--token)` referenced in markup/CSS actually exists in `styles/tokens.css`), confirming any `<link href>`/`<script src>` target file actually exists, and re-reading the edited section rather than assuming a successful Edit means the content is correct. Actual visual/browser verification is a real gap this doesn't close — flag that gap rather than silently skipping it, and only open a local server for it if the user asks.
+
 ## Build log — content capture
 This repo carries a docs/build-log.md that records the story behind the product — the thinking, decisions, dead-ends, and killed ideas — as raw material for later content (LinkedIn/Substack articles, Instagram reels). Git records what was built; the build log records what I was thinking. Keep it current as a side effect of building.
 
@@ -30,17 +41,6 @@ This repo carries a docs/build-log.md that records the story behind the product 
 **Boundaries**
 - Appending to the build log is part of the work, but it follows this repo's normal rule: don't commit or push automatically — leave it for review like any other change.
 - Signal, not noise: capture beats worth remembering, not every minor edit.
-
-## Workflow
-- Never commit or push automatically. Make the requested edits, stop, and let the user review the files locally before anything is committed. Only commit/push when explicitly told to.
-- If a request is vague or open to more than one reasonable interpretation, don't guess — ask multiple-choice clarifying questions one at a time until it's resolved, rather than picking an interpretation and running with it.
-- Preserve existing functionality when restyling or refactoring. A visual/design pass should not silently drop working behavior (e.g. a login flow) — carry it forward even as markup and styles change.
-- The PRD is the source of truth for product requirements and scope. Check it before adding or changing functionality.
-- It's fine to add non-functional/decorative elements for visual completeness (e.g. extra auth provider buttons) when the user explicitly scopes them that way — don't wire them up unless asked.
-- If a task from the docs/backlog.md file is done, remove it from the list.
-- If asked "why" something is a certain way, answer the why question directly first — don't jump straight to implementing a fix. Only make a change afterward if the user then asks for one.
-- Before invoking any skill or plugin that isn't one of this repo's own `.claude/agents/*.md` personas (e.g. a global "superpowers" brainstorming/planning skill), ask first. This repo has its own tailored agents for exactly this kind of work — default to those, don't let an unrelated global skill take over a task they're built for.
-- Don't claim a change works without checking it, but don't spin up a local server (`python3 -m http.server` or similar) to do that check unless explicitly asked. Verification here means: `node --check` on any touched `.js` file, grepping to confirm structural rules actually hold (e.g. zero `style="` / `<style` matches in HTML per the no-inline-CSS rule, every `var(--token)` referenced in markup/CSS actually exists in `styles/tokens.css`), confirming any `<link href>`/`<script src>` target file actually exists, and re-reading the edited section rather than assuming a successful Edit means the content is correct. Actual visual/browser verification is a real gap this doesn't close — flag that gap rather than silently skipping it, and only open a local server for it if the user asks.
 
 ## Visual identity **[PLACEHOLDER]**
 [PRODUCT_NAME] must look like [reference product / design system] — not like a generic/templated AI-generated product. Fill this in deliberately before doing any visual work; don't inherit a prior product's identity by default. Concretely define:
