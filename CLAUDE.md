@@ -2,6 +2,35 @@
 
 > **This is a BOILERPLATE CLAUDE.md.** Sections or lines marked **[PLACEHOLDER]** need to be filled in deliberately when starting a new product on this repo — don't leave them unfilled and don't let default/assumed values leak in from the prior product.
 
+## Build log — content capture
+This repo carries a docs/build-log.md that records the story behind the product — the thinking, decisions, dead-ends, and killed ideas — as raw material for later content (LinkedIn/Substack articles, Instagram reels). Git records what was built; the build log records what I was thinking. Keep it current as a side effect of building.
+
+**When to append** — automatically, don't wait to be asked, when a natural beat passes:
+- a real decision is made (especially choosing simple over complex) → Scope or Build
+- an idea is killed, cut, or deferred → Scope (note what and why — killed ideas are the highest-value entries)
+- something is almost built, then dropped → Scope
+- a feature ships or a launch happens → Ship
+- a dead-end, bug, or wrong assumption teaches something → Build or See
+- the product first works, or first breaks → Build (and suggest a screenshot for the Assets list)
+- someone reacts to it or uses it → See (capture the exact words where possible)
+
+**How to write entries**
+- One or two plain lines, dated `- [YYYY-MM-DD] …`, in the relevant bucket. Sunny's voice: direct, specific, no purple, no "I learned so much 🚀". Capture the honest version, including the unflattering bits.
+- Prefer the thinking and the why, not a restatement of the code diff — git already has the diff.
+- When a clearly significant beat has passed and nothing's been logged, add the entry yourself in your own words. At most, ask one light cue ("worth logging why you killed X?") — never turn capture into an interrogation.
+- If a moment would make good visual content, capture it through the screenshot gate below rather than just noting it.
+
+**Screenshot capture (ask first)**
+- At a genuinely visual-worthy beat — the product first working, first breaking, a shippable-looking screen, or a visible before→after change worth showing — pause and ask before capturing: "This looks visual-worthy — want me to grab a screenshot?" For a before/after change, ask once and capture both sides so the transformation is visible.
+- Only ask at meaningful beats, not on every execution — a barrage of prompts is worse than none.
+- Yes → take the browser screenshot(s), save to `/content-raw/`, and add a captioned Assets entry (filename — caption — beat).
+- No → still log the moment as a placeholder so it isn't lost: `- [YYYY-MM-DD] (screenshot pending — Sunny to add) — <what the moment was> — [beat]`. Sunny can capture it herself, or check out the relevant commit later to grab it.
+- This is a deliberate, approved exception to the repo's "don't spin up a browser to verify unless asked" rule — it applies only to content capture at these beats, and only after a yes.
+
+**Boundaries**
+- Appending to the build log is part of the work, but it follows this repo's normal rule: don't commit or push automatically — leave it for review like any other change.
+- Signal, not noise: capture beats worth remembering, not every minor edit.
+
 ## Workflow
 - Never commit or push automatically. Make the requested edits, stop, and let the user review the files locally before anything is committed. Only commit/push when explicitly told to.
 - If a request is vague or open to more than one reasonable interpretation, don't guess — ask multiple-choice clarifying questions one at a time until it's resolved, rather than picking an interpretation and running with it.
