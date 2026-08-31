@@ -2,7 +2,7 @@
 
 > **What this is:** the story behind the product, captured *as it's built* — the thinking, the decisions, the dead-ends, the things almost built and killed. GitHub records *what* was made; this records *what I was thinking*. It's the raw material the Sunny PM content project turns into LinkedIn/Substack articles and Instagram reels — so capture the honest version, not the tidy one.
 >
-> **How to use it:** append dated notes to the right bucket as you go — a line or two is plenty, don't polish. The buckets follow the loop **Spot → Scope → Build → Ship → See → Shift** (Think → Do → Learn → Change). Claude appends here automatically while building (see the build-log rule in `CLAUDE.md`); add your own lines whenever something's worth remembering.
+> **How to use it:** append dated notes to the right bucket as you go — don't polish. A line or two is fine for a quick beat, but let an entry run longer when the reasoning behind a decision is the valuable part — a paragraph of honest thinking is worth more here than a clipped sentence, since this is the raw material future content gets pulled from. The buckets follow the loop **Spot → Scope → Build → Ship → See → Shift** (Think → Do → Learn → Change). Claude appends here automatically while building (see the build-log rule in `CLAUDE.md`); add your own lines whenever something's worth remembering.
 
 ## Product
 
@@ -67,7 +67,7 @@ Cues: What did I change or cut after launch? What would I do differently next ti
 
 ## Assets — screenshots & recordings
 
-*Point to raw visual material as you capture it, so content visuals aren't a scramble later. Save files somewhere sensible (e.g. `/content-raw/`) and log them here.*
+*Point to raw visual material as you capture it, so content visuals aren't a scramble later. Save files to `assets/screenshots/` and log them here.*
 
 Format: `- [date] filename or location — one-line caption — [beat]`
 

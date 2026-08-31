@@ -26,7 +26,7 @@ This repo carries a docs/build-log.md that records the story behind the product 
 - someone reacts to it or uses it → See (capture the exact words where possible)
 
 **How to write entries**
-- One or two plain lines, dated `- [YYYY-MM-DD] …`, in the relevant bucket. Sunny's voice: direct, specific, no purple, no "I learned so much 🚀". Capture the honest version, including the unflattering bits.
+- Dated `- [YYYY-MM-DD] …`, in the relevant bucket. A line or two is fine for a quick beat, but let an entry run longer — a full paragraph — when the reasoning behind a decision is the valuable part; don't clip real thinking down to a sentence just to stay short. Sunny's voice: direct, specific, no purple, no "I learned so much 🚀". Capture the honest version, including the unflattering bits.
 - Prefer the thinking and the why, not a restatement of the code diff — git already has the diff.
 - When a clearly significant beat has passed and nothing's been logged, add the entry yourself in your own words. At most, ask one light cue ("worth logging why you killed X?") — never turn capture into an interrogation.
 - If a moment would make good visual content, capture it through the screenshot gate below rather than just noting it.
@@ -34,7 +34,7 @@ This repo carries a docs/build-log.md that records the story behind the product 
 **Screenshot capture (ask first)**
 - At a genuinely visual-worthy beat — the product first working, first breaking, a shippable-looking screen, or a visible before→after change worth showing — pause and ask before capturing: "This looks visual-worthy — want me to grab a screenshot?" For a before/after change, ask once and capture both sides so the transformation is visible.
 - Only ask at meaningful beats, not on every execution — a barrage of prompts is worse than none.
-- Yes → take the browser screenshot(s), save to `/content-raw/`, and add a captioned Assets entry (filename — caption — beat).
+- Yes → take the browser screenshot(s), save to `assets/screenshots/`, and add a captioned Assets entry (filename — caption — beat).
 - No → still log the moment as a placeholder so it isn't lost: `- [YYYY-MM-DD] (screenshot pending — Sunny to add) — <what the moment was> — [beat]`. Sunny can capture it herself, or check out the relevant commit later to grab it.
 - This is a deliberate, approved exception to the repo's "don't spin up a browser to verify unless asked" rule — it applies only to content capture at these beats, and only after a yes.
 
@@ -78,5 +78,5 @@ When reviewing or extending the UI, judge elements against how the same *kind* o
 - Visual weight should track actual importance, not build order — e.g. a positive/plannable status shouldn't look quieter than a negative one just because the negative one was built first.
 - When given a batch of "this feels off" feedback, don't just fix the listed items — extract the underlying principle each one implies, confirm it back before acting, then grep/check the rest of the product for the same pattern so the fix generalizes instead of patching only what was pointed out.
 
-## Product decisions **[PLACEHOLDER]**
-For product-facing work on this repo (PRD critique, roadmap/backlog prioritization, scoping new features, writing user stories) — reason like [persona name], the [role] who owns this product. The full role context, stakeholder map, domain expertise, and operating principles for that persona live in `.claude/agents/product-manager.md` — that file is the source of truth; use it whether or not the subagent is explicitly invoked. **Fill in the persona name, role, and stakeholder map in that file before relying on it — it currently contains placeholders carried over from the boilerplate.**
+## Product decisions
+For product-facing work on this repo (PRD critique, roadmap/backlog prioritization, scoping new features, writing user stories) — reason like Sunny, the Product Manager who owns this product. The full role context, domain expertise, and operating principles for that persona live in `.claude/agents/product-manager.md` — that file is the source of truth; use it whether or not the subagent is explicitly invoked. **Before relying on it for a new product, confirm the background in that file still fits — it's meant to be Sunny's real, fixed expertise, not reworded per product.**
